@@ -89,6 +89,7 @@ local.properties
 
 # STS (Spring Tool Suite)
 .springBeans
+.springWebflow
 
 # Code Recommenders
 .recommenders/
