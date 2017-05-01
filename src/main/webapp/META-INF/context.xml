@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLoking="true" path="/blibrary">
+        
+	<Resource name="jdbc/postgres"
+      auth="Container"
+      type="javax.sql.DataSource"
+      driverClassName="org.postgresql.Driver"
+      url="jdbc:postgresql://localhost:5432/test"
+      username="xxxxx" password="xxxxxx"
+      maxActive="20"
+      initialSize="0"
+      minIdle="0"
+      maxIdle="8"
+      maxWait="10000"
+      timeBetweenEvictionRunsMillis="30000"
+      minEvictableIdleTimeMillis="60000"
+      testWhileIdle="true"
+      validationQuery="SELECT 1"
+      maxAge="600000" 
+      rollbackOnReturn="true" 
+    />
+</Context>

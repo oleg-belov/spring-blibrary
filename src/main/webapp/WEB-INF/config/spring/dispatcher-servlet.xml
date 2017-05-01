@@ -2,23 +2,38 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
     <import resource="webflow.xml"/>
-
+	<context:annotation-config/>
+	
     <mvc:resources location="/" mapping="/resources/**"/>
 
 
     <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
         <property name="flowRegistry" ref="flowRegistry"/>
+        <property name="order" value="2"/>
         <property name="interceptors">
 			<list>
 				<ref bean="localeChangeInterceptor" />
 			</list>
 		</property>
     </bean>
+	
+	<bean name="resourceHandlerJSF" class="org.springframework.faces.webflow.JsfResourceRequestHandler"/>
 
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="order" value="1"/>
+        <property name="mappings">
+            <value>
+                /javax.faces.resource/**=resourceHandlerJSF
+            </value>
+        </property>
+    </bean>
+    
     <bean class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">
         <property name="flowExecutor" ref="flowExecutor"/>
     </bean>
@@ -41,5 +56,7 @@
 	<bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 		<property name="paramName" value="language" />
 	</bean>
+	
+	<mvc:view-controller path="/login" />
 	
 </beans>
