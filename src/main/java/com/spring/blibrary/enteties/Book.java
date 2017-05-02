@@ -14,8 +14,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "book")
 public class Book {
 
 	@Id
@@ -61,8 +64,9 @@ public class Book {
 	      inverseJoinColumns = @JoinColumn(name = "author_id ", referencedColumnName = "id "))
 	private List<Author> authors;
 	
-	@Column(name = "rating_tupe" , nullable = false)
-	private float rating;
+	@OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="rating_id")
+	private RatingValueView rating;
 	
 	public Book() {
 	}
@@ -163,12 +167,12 @@ public class Book {
 		this.authors = authors;
 	}
 
-	public float getRating() {
+	public RatingValueView getRating() {
 		return rating;
 	}
 
-	public void setRating(float rating) {
+	public void setRating(RatingValueView rating) {
 		this.rating = rating;
 	}
-	
+
 }

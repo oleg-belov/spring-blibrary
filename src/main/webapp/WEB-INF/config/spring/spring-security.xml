@@ -41,8 +41,6 @@
             <port-mapping http="8080" https="8181" />
         </port-mappings>
 
-
-
         <form-login
                 login-page="/app/login"
                 login-processing-url="/app/checkuser"
@@ -53,7 +51,5 @@
 
         <logout logout-success-url="/app/login" logout-url="/app/logout"/>
     </http>
-
-
 
 </beans:beans>

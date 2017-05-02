@@ -9,8 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "author")
 public class Author {
 	
 	@Id
@@ -26,6 +28,9 @@ public class Author {
 	
 	@ManyToMany(mappedBy = "authors")
 	private  List<Book> books;
+	
+	@Column(name = "author_img" , nullable = false)
+	private byte[] image;
 
 	public Author() {
 	}
@@ -61,5 +66,13 @@ public class Author {
 	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
-	
+
+	public byte[] getImage() {
+		return image;
+	}
+
+	public void setImage(byte[] image) {
+		this.image = image;
+	}
+
 }
