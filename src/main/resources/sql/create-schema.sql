@@ -1,11 +1,10 @@
 GRANT CONNECT, TEMPORARY ON DATABASE "spring-blibrary" TO public;
 GRANT ALL ON DATABASE "spring-blibrary" TO postgres;
-GRANT ALL ON DATABASE "spring-blibrary" TO god;
 GRANT CONNECT ON DATABASE "spring-blibrary" TO blibrary;
 
 -- Schema: public
 
-DROP SCHEMA public;
+DROP SCHEMA IF EXISTS public;
 
 CREATE SCHEMA public
   AUTHORIZATION postgres;
