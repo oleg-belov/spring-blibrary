@@ -4,7 +4,7 @@ GRANT CONNECT ON DATABASE "spring-blibrary" TO blibrary;
 
 -- Schema: public
 
-DROP SCHEMA IF EXISTS public;
+DROP SCHEMA IF EXISTS public CASCADE;
 
 CREATE SCHEMA public
   AUTHORIZATION postgres;
@@ -14,11 +14,11 @@ GRANT ALL ON SCHEMA public TO public;
 COMMENT ON SCHEMA public
   IS 'standard public schema';
 
-DROP TABLE IF EXISTS book_author;
-DROP TABLE IF EXISTS book;
-DROP TABLE IF EXISTS author;
-DROP TABLE IF EXISTS book_category;
-DROP TABLE IF EXISTS vote;
+DROP TABLE IF EXISTS book_author CASCADE;
+DROP TABLE IF EXISTS book CASCADE;
+DROP TABLE IF EXISTS author CASCADE;
+DROP TABLE IF EXISTS book_category CASCADE;
+DROP TABLE IF EXISTS vote CASCADE;
 
 ------ Cteate Table for books category --------
 CREATE TABLE book_category (

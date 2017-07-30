@@ -60,8 +60,8 @@ public class Book {
 	@ManyToMany(cascade = CascadeType.ALL)
 	 @JoinTable(
 	      name = "book_author",
-	      joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"),
-	      inverseJoinColumns = @JoinColumn(name = "author_id ", referencedColumnName = "id "))
+	      joinColumns = @JoinColumn(name = "book_id"),
+	      inverseJoinColumns = @JoinColumn(name = "author_id "))
 	private List<Author> authors;
 	
 	@OneToOne(fetch=FetchType.LAZY)

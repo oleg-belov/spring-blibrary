@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context antiJARLoking="true" path="/blibrary">
+<Context  path="/spring-blibrary">
         
 	<Resource name="jdbc/postgres"
       auth="Container"
       type="javax.sql.DataSource"
       driverClassName="org.postgresql.Driver"
       url="jdbc:postgresql://localhost:5432/spring-blibrary"
-      username="blibrary" password="password"
+      username="blibrary" password="admin228"
       maxActive="20"
       initialSize="0"
       minIdle="0"
